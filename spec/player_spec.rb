@@ -2,35 +2,28 @@
 
 require_relative '../lib/player'
 
-RSpec.describe Player do
-  before { @player_with_name = Player.new('X', 'Olga') }
-  before { @player_without_name = Player.new('O') }
+describe Player do
+  let(:player) { Player.new('X', 'Olga') }
+  let(:player_no_name) { Player.new('O') }
 
-  describe 'Create Player' do
-    it 'Should create a new instance of the Player class' do
-      expect(@player_with_name).to be_a(Player)
+  context 'when a new player is created' do
+    it 'should be an instance of player' do
+      expect(player).to be_a(Player)
     end
 
-    # It can take one or two argument, marker and name
-    # it 'Should take exactly 1 argument. (String: Player marker)' do
-    #   expect
-    # end
+    it 'should have the attributes :name and :marker as strings' do
+      expect(player).to have_attributes(name: 'Olga', marker: 'X')
+    end
+  end
 
-    it 'Returns player name as a string' do
-      expect(@player_with_name.name).to eq('Olga')
+  context 'when a new player is created without a name' do
+    it "should return the default player name 'Player' as a string" do
+      expect(player_no_name).to have_attributes(name: 'Player', marker: 'O')
     end
 
-    it 'Returns player marker as a string' do
-      expect(@player_with_name.marker).to eq('X')
-    end
-
-    it "Returns default player name 'Player' if name is not set" do
-      expect(@player_without_name.name).to eq('Player')
-    end
-
-    it 'Set and return player name as a string when not initially set' do
-      @player_without_name.name = 'Mike'
-      expect(@player_without_name.name).to eq('Mike')
+    it 'should be able to set and return the player name as a string' do
+      player_no_name.name = 'Mike'
+      expect(player_no_name).to have_attributes(name: 'Mike', marker: 'O')
     end
   end
 end
