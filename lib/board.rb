@@ -4,8 +4,9 @@
 class Board
   INIT_MARKER = ' '
 
-  def initialize
-    @board = (1..9).each_with_object({}) { |n, board| board[n] = INIT_MARKER }
+  def initialize(board = {})
+    @board = board
+    @board ||= (1..9).each_with_object({}) { |n, b| b[n] = INIT_MARKER }
   end
 
   def display
