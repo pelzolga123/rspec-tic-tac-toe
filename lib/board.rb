@@ -3,9 +3,11 @@
 # Board class
 class Board
   INIT_MARKER = ' '
+  attr_reader :board
 
-  def initialize
-    @board = (1..9).each_with_object({}) { |n, board| board[n] = INIT_MARKER }
+  def initialize(board = nil)
+    @board = board
+    @board ||= (1..9).each_with_object({}) { |n, b| b[n] = INIT_MARKER }
   end
 
   def display
@@ -29,7 +31,7 @@ class Board
   end
 
   def valid_selection?(position)
-    @board[position] == INIT_MARKER && (1..9).include?(selection)
+    @board[position] == INIT_MARKER && (1..9).include?(position)
   end
 
   def lines
