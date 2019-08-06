@@ -28,10 +28,13 @@ describe Game do
   let(:game_draw) { Game.new(draw) }
 
   context 'when a new game is created' do
-    it 'should create a new empty board' do
-      expect(game.board).to be_a Board
-      expect(game.board.board).to eq(empty_board.board)
+    describe '#initialize' do
+      it 'should create a new empty board' do
+        expect(game.board).to be_a Board
+        expect(game.board.board).to eq(empty_board.board)
+      end
     end
+
     describe '#state' do
       it 'should return :active' do
         expect(game.state).to eq(:active)
@@ -47,12 +50,14 @@ describe Game do
         expect(game.current_player).not_to eq(initial_player)
       end
     end
+
     describe '#turn' do
       it 'should place a marker at the selected position' do
         game.turn(5)
         expect(game.board.board[5]).to(satisfy) { |x| %w[X O].include?(x) }
       end
     end
+
     describe '#state' do
       it 'should return :active' do
         expect(game.state).to eq(:active)
