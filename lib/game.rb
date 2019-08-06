@@ -5,8 +5,8 @@ class Game
   attr_accessor :player1, :player2
   attr_reader :current_player, :board
 
-  def initialize
-    @board = Board.new
+  def initialize(board = Board.new)
+    @board = board
     @player1 = Player.new('X')
     @player2 = Player.new('O')
     @current_player = [@player1, @player2].sample(1).first
