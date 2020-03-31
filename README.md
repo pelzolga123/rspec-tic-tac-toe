@@ -1,7 +1,7 @@
 <h1 align="center">RSpec testing Tic-tac-toe 👋</h1>
 
 ## About The Project
-Applying the RSpec testing framework to the Tic-tac-toe game project. Introduction to TDD (Test Driven Development) and the RSpec testing framework.This project was completed as part of the [Microverse](https://www.microverse.org/) curriculum.
+Applying the RSpec testing framework to the Tic-tac-toe game project. Introduction to TDD (Test Driven Development) and the RSpec testing framework. This project was completed as part of the [Microverse](https://www.microverse.org/) curriculum.
 
 ## Built With
 * Ruby
